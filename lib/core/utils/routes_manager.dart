@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/features/home/presentation/views/home_view.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/food_view.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/talabat_mart_view.dart';
 import 'package:talabat/features/splash/presentation/views/splash_view.dart';
 import 'package:talabat/features/welcome/presentation/views/welcome_view.dart';
  
@@ -10,7 +12,8 @@ class RoutesManager {
   static const String login = "login";
   static const String register = "register";
   static const String home = "home";
-  static const String orderDetails = "orderDetails";
+  static const String food = "food";
+  static const String talabatMart = "talabatMart";
 
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,6 +23,10 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => const WelcomeView());
         case home:
         return MaterialPageRoute(builder: (_) => const HomeView());
+        case food:
+        return MaterialPageRoute(builder: (_) => const FoodView());
+        case talabatMart:
+        return MaterialPageRoute(builder: (_) => const TalabatMartView());
       default:
         return MaterialPageRoute(builder: (_) => const Placeholder());
     }

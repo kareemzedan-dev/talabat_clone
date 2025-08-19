@@ -97,15 +97,15 @@ class HomeHeaderSection extends StatelessWidget {
               ],
             ),
           ),
-
-          Container(
-            width: 163,
-            height: 179,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset(
-                Assets.assetsImagesHeaderBanner,
-                fit: BoxFit.fill,
+          Flexible(
+            child: Container(
+              height: 179,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Image.asset(
+                  Assets.assetsImagesHeaderBanner,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

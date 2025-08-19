@@ -6,6 +6,14 @@ class Assets {
   /// assets/images/allo.png
   static const String assetsImagesAllo = "assets/images/allo.png";
 
+  /// Assets for assetsImagesBackColorContainer
+  /// assets/images/back_color_container.png
+  static const String assetsImagesBackColorContainer = "assets/images/back_color_container.png";
+
+  /// Assets for assetsImagesBackColorShape
+  /// assets/images/back_color_shape.png
+  static const String assetsImagesBackColorShape = "assets/images/back_color_shape.png";
+
   /// Assets for assetsImagesBestSellers
   /// assets/images/best_sellers.png
   static const String assetsImagesBestSellers = "assets/images/best_sellers.png";
@@ -46,13 +54,17 @@ class Assets {
   /// assets/images/health.png
   static const String assetsImagesHealth = "assets/images/health.png";
 
+  /// Assets for assetsImagesHealthFood
+  /// assets/images/health_food.png
+  static const String assetsImagesHealthFood = "assets/images/health_food.png";
+
+  /// Assets for assetsImagesHealthiconsVespaMotorcycleOutline
+  /// assets/images/healthicons_vespa-motorcycle-outline.png
+  static const String assetsImagesHealthiconsVespaMotorcycleOutline = "assets/images/healthicons_vespa-motorcycle-outline.png";
+
   /// Assets for assetsImagesHomeIc
   /// assets/images/home_ic.png
   static const String assetsImagesHomeIc = "assets/images/home_ic.png";
-
-  /// Assets for assetsImagesIPhone 15 Pro
-  /// assets/images/iPhone 15 Pro.png
-  static const String assetsImagesIPhone 15 Pro = "assets/images/iPhone 15 Pro.png";
 
   /// Assets for assetsImagesIcApple
   /// assets/images/ic_apple.svg
@@ -74,6 +86,14 @@ class Assets {
   /// assets/images/iconamoon_clock-thin.svg
   static const String assetsImagesIconamoonClockThin = "assets/images/iconamoon_clock-thin.svg";
 
+  /// Assets for assetsImagesJunior
+  /// assets/images/junior.png
+  static const String assetsImagesJunior = "assets/images/junior.png";
+
+  /// Assets for assetsImagesMalak Al Tawouk, R
+  /// assets/images/Malak Al Tawouk, R....png
+  static const String assetsImagesMala = "assets/images/Malak Al Tawouk, R....png";
+
   /// Assets for assetsImagesMoreshops
   /// assets/images/moreshops.png
   static const String assetsImagesMoreshops = "assets/images/moreshops.png";
@@ -82,9 +102,17 @@ class Assets {
   /// assets/images/must_tries.png
   static const String assetsImagesMustTries = "assets/images/must_tries.png";
 
+  /// Assets for assetsImagesOffer
+  /// assets/images/offer.png
+  static const String assetsImagesOffer = "assets/images/offer.png";
+
   /// Assets for assetsImagesOrders
   /// assets/images/orders.png
   static const String assetsImagesOrders = "assets/images/orders.png";
+
+  /// Assets for assetsImagesPapparoti
+  /// assets/images/papparoti.png
+  static const String assetsImagesPapparoti = "assets/images/papparoti.png";
 
   /// Assets for assetsImagesPcodeBanner
   /// assets/images/pcode_banner.png
@@ -93,6 +121,22 @@ class Assets {
   /// Assets for assetsImagesPerson
   /// assets/images/person.png
   static const String assetsImagesPerson = "assets/images/person.png";
+
+  /// Assets for assetsImagesPhClockLight
+  /// assets/images/ph_clock-light.png
+  static const String assetsImagesPhClockLight = "assets/images/ph_clock-light.png";
+
+  /// Assets for assetsImagesPizza
+  /// assets/images/pizza.png
+  static const String assetsImagesPizza = "assets/images/pizza.png";
+
+  /// Assets for assetsImagesPoke
+  /// assets/images/poke.png
+  static const String assetsImagesPoke = "assets/images/poke.png";
+
+  /// Assets for assetsImagesPro
+  /// assets/images/pro.png
+  static const String assetsImagesPro = "assets/images/pro.png";
 
   /// Assets for assetsImagesRestaurant2
   /// assets/images/restaurant2.png
@@ -110,6 +154,14 @@ class Assets {
   /// assets/images/saver.png
   static const String assetsImagesSaver = "assets/images/saver.png";
 
+  /// Assets for assetsImagesSeller
+  /// assets/images/seller.png
+  static const String assetsImagesSeller = "assets/images/seller.png";
+
+  /// Assets for assetsImagesSushi
+  /// assets/images/sushi.png
+  static const String assetsImagesSushi = "assets/images/sushi.png";
+
   /// Assets for assetsImagesTalabat
   /// assets/images/talabat.png
   static const String assetsImagesTalabat = "assets/images/talabat.png";
@@ -117,5 +169,9 @@ class Assets {
   /// Assets for assetsImagesTalabtMart
   /// assets/images/talabt_mart.jpg
   static const String assetsImagesTalabtMart = "assets/images/talabt_mart.jpg";
+
+  /// Assets for assetsImagesTries
+  /// assets/images/tries.png
+  static const String assetsImagesTries = "assets/images/tries.png";
 }
 

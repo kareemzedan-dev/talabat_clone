@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
-import 'package:talabat/features/home/presentation/views/widgets/best_spots_container.dart';
-import 'package:talabat/features/home/presentation/views/widgets/category_card.dart';
-import 'package:talabat/features/home/presentation/views/widgets/category_card_list_view.dart';
-import 'package:talabat/features/home/presentation/views/widgets/home_header_section.dart';
-import 'package:talabat/features/home/presentation/views/widgets/promo_code_banner.dart';
-import 'package:talabat/features/home/presentation/views/widgets/restaurant_card.dart';
-import 'package:talabat/features/home/presentation/views/widgets/shortcuts_list_view.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/best_spots_container.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/category_card.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/category_card_list_view.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/home_header_section.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/promo_code_banner.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_card.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurants_card_list_view.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/shortcuts_list_view.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class HomeViewTabBody extends StatelessWidget {
+  const HomeViewTabBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class HomeViewBody extends StatelessWidget {
                 ),
 
                 SizedBox(height: 10),
-                RestaurantCard(),
+                 RestaurantsCardListView(),
                 SizedBox(height: 50),
 
               ],

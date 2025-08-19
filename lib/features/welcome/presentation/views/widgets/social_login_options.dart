@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
+import 'package:talabat/core/utils/routes_manager.dart';
 import 'package:talabat/features/welcome/presentation/views/widgets/social_login_button.dart';
  
  
@@ -18,7 +19,8 @@ class SocialLoginOptions extends StatelessWidget {
           label: "Continue with Google",
           iconPath: Assets.assetsImagesIcGoogle,
           onPressed: () {
-            print("Google login");
+
+Navigator.pushNamed(context ,RoutesManager.home);
           },
         ),
         SizedBox(height: 16),

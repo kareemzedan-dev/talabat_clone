@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
-import 'package:talabat/features/home/presentation/views/widgets/restaurant_name_and_love_row.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_name_and_love_row.dart';
 
 class BestSpotsContainer extends StatelessWidget {
   const BestSpotsContainer({super.key});
@@ -41,31 +41,42 @@ class BestSpotsContainer extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         SizedBox(height: 5),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Icon(Icons.star, color: ColorsManager.primary, size: 16),
-            SizedBox(width: 5),
-            Text(
-              "4.5",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: 5),
-            Text(
-              "(30+)",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+        buildRatingWidget(
+          rating: 4.5,
+          ratingCount: "(200+)",
         ),
       ],
     );
   }
+
+ 
 }
+  Row buildRatingWidget({
+    required double rating,
+    required String ratingCount,
+  }) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(Icons.star, color: ColorsManager.primary, size: 16),
+          SizedBox(width: 5),
+          Text(
+          rating.toString(),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(width: 5),
+          Text(
+           ratingCount.toString(),
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      );
+  }
