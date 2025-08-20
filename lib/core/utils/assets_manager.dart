@@ -14,9 +14,21 @@ class Assets {
   /// assets/images/back_color_shape.png
   static const String assetsImagesBackColorShape = "assets/images/back_color_shape.png";
 
+  /// Assets for assetsImagesBakery
+  /// assets/images/bakery.png
+  static const String assetsImagesBakery = "assets/images/bakery.png";
+
   /// Assets for assetsImagesBestSellers
   /// assets/images/best_sellers.png
   static const String assetsImagesBestSellers = "assets/images/best_sellers.png";
+
+  /// Assets for assetsImagesBeverages
+  /// assets/images/beverages.png
+  static const String assetsImagesBeverages = "assets/images/beverages.png";
+
+  /// Assets for assetsImagesBiscuits
+  /// assets/images/biscuits.png
+  static const String assetsImagesBiscuits = "assets/images/biscuits.png";
 
   /// Assets for assetsImagesBurger
   /// assets/images/burger.png
@@ -26,9 +38,17 @@ class Assets {
   /// assets/images/carbon_search.png
   static const String assetsImagesCarbonSearch = "assets/images/carbon_search.png";
 
+  /// Assets for assetsImagesCheese
+  /// assets/images/cheese.png
+  static const String assetsImagesCheese = "assets/images/cheese.png";
+
   /// Assets for assetsImagesCoffee
   /// assets/images/coffee.png
   static const String assetsImagesCoffee = "assets/images/coffee.png";
+
+  /// Assets for assetsImagesEggs
+  /// assets/images/eggs.png
+  static const String assetsImagesEggs = "assets/images/eggs.png";
 
   /// Assets for assetsImagesFlowers
   /// assets/images/flowers.png
@@ -37,6 +57,14 @@ class Assets {
   /// Assets for assetsImagesFood1
   /// assets/images/food1.png
   static const String assetsImagesFood1 = "assets/images/food1.png";
+
+  /// Assets for assetsImagesFruit
+  /// assets/images/fruit.png
+  static const String assetsImagesFruit = "assets/images/fruit.png";
+
+  /// Assets for assetsImagesGalaxy
+  /// assets/images/galaxy.png
+  static const String assetsImagesGalaxy = "assets/images/galaxy.png";
 
   /// Assets for assetsImagesGiveBack
   /// assets/images/give_back.png
@@ -82,6 +110,10 @@ class Assets {
   /// assets/images/ic_google.svg
   static const String assetsImagesIcGoogle = "assets/images/ic_google.svg";
 
+  /// Assets for assetsImagesIceCream
+  /// assets/images/ice_cream.png
+  static const String assetsImagesIceCream = "assets/images/ice_cream.png";
+
   /// Assets for assetsImagesIconamoonClockThin
   /// assets/images/iconamoon_clock-thin.svg
   static const String assetsImagesIconamoonClockThin = "assets/images/iconamoon_clock-thin.svg";
@@ -90,9 +122,21 @@ class Assets {
   /// assets/images/junior.png
   static const String assetsImagesJunior = "assets/images/junior.png";
 
-  /// Assets for assetsImagesMalak Al Tawouk, R
-  /// assets/images/Malak Al Tawouk, R....png
-  static const String assetsImagesMala = "assets/images/Malak Al Tawouk, R....png";
+  /// Assets for assetsImagesKiri
+  /// assets/images/kiri.png
+  static const String assetsImagesKiri = "assets/images/kiri.png";
+
+  /// Assets for assetsImagesMalakAlTawouk
+  /// assets/images/MalakAlTawouk.png
+  static const String assetsImagesMalakAlTawouk = "assets/images/MalakAlTawouk.png";
+
+  /// Assets for assetsImagesMdiLightArrowLeft
+  /// assets/images/mdi-light_arrow-left.png
+  static const String assetsImagesMdiLightArrowLeft = "assets/images/mdi-light_arrow-left.png";
+
+  /// Assets for assetsImagesMilk
+  /// assets/images/milk.png
+  static const String assetsImagesMilk = "assets/images/milk.png";
 
   /// Assets for assetsImagesMoreshops
   /// assets/images/moreshops.png
@@ -102,9 +146,33 @@ class Assets {
   /// assets/images/must_tries.png
   static const String assetsImagesMustTries = "assets/images/must_tries.png";
 
+  /// Assets for assetsImagesNotoFire
+  /// assets/images/noto_fire.svg
+  static const String assetsImagesNotoFire = "assets/images/noto_fire.svg";
+
+  /// Assets for assetsImagesNuts
+  /// assets/images/nuts.png
+  static const String assetsImagesNuts = "assets/images/nuts.png";
+
   /// Assets for assetsImagesOffer
   /// assets/images/offer.png
   static const String assetsImagesOffer = "assets/images/offer.png";
+
+  /// Assets for assetsImagesOffer1
+  /// assets/images/offer1.png
+  static const String assetsImagesOffer1 = "assets/images/offer1.png";
+
+  /// Assets for assetsImagesOffer2
+  /// assets/images/offer2.png
+  static const String assetsImagesOffer2 = "assets/images/offer2.png";
+
+  /// Assets for assetsImagesOffer3
+  /// assets/images/offer3.png
+  static const String assetsImagesOffer3 = "assets/images/offer3.png";
+
+  /// Assets for assetsImagesOffer4
+  /// assets/images/offer4.png
+  static const String assetsImagesOffer4 = "assets/images/offer4.png";
 
   /// Assets for assetsImagesOrders
   /// assets/images/orders.png
@@ -138,6 +206,10 @@ class Assets {
   /// assets/images/pro.png
   static const String assetsImagesPro = "assets/images/pro.png";
 
+  /// Assets for assetsImagesRectangle
+  /// assets/images/rectangle.png
+  static const String assetsImagesRectangle = "assets/images/rectangle.png";
+
   /// Assets for assetsImagesRestaurant2
   /// assets/images/restaurant2.png
   static const String assetsImagesRestaurant2 = "assets/images/restaurant2.png";
@@ -150,6 +222,14 @@ class Assets {
   /// assets/images/restaurant4.png
   static const String assetsImagesRestaurant4 = "assets/images/restaurant4.png";
 
+  /// Assets for assetsImagesSalted
+  /// assets/images/salted.png
+  static const String assetsImagesSalted = "assets/images/salted.png";
+
+  /// Assets for assetsImagesSandwitch
+  /// assets/images/sandwitch.png
+  static const String assetsImagesSandwitch = "assets/images/sandwitch.png";
+
   /// Assets for assetsImagesSaver
   /// assets/images/saver.png
   static const String assetsImagesSaver = "assets/images/saver.png";
@@ -161,6 +241,10 @@ class Assets {
   /// Assets for assetsImagesSushi
   /// assets/images/sushi.png
   static const String assetsImagesSushi = "assets/images/sushi.png";
+
+  /// Assets for assetsImagesSweet
+  /// assets/images/sweet.png
+  static const String assetsImagesSweet = "assets/images/sweet.png";
 
   /// Assets for assetsImagesTalabat
   /// assets/images/talabat.png
