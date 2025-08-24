@@ -52,62 +52,52 @@ class LoginWithEmailBody extends StatelessWidget {
           }
        
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Continue with email',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontFamily: 'DM Sans',
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: 32),
-            CustomTextFormField(
-              hintText: "Email",
-              keyboardType: TextInputType.emailAddress,
-              textEditingController: emailController,
-             
-              isEmailValidator: true,
-              onSaved: (p0) {
-                emailController.text = p0!;
-              },
-              iconShow: false,
-            ),
-            SizedBox(height: 24),
-            CustomTextFormField(
-              hintText: "Password",
-              keyboardType: TextInputType.visiblePassword,
-              textEditingController: passwordController,
-              validator: (p0) {},
-              isEmailValidator: false,
-              onSaved: (p0) {
-              passwordController.text = p0!;
-              },
-              iconShow: true,
-            ),
-      
-            SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Forgot password?',
-                  style: TextStyle(
-                    color: const Color(0xFFFF6100),
-                    fontSize: 14,
-                    fontFamily: 'DM Sans',
-                    fontWeight: FontWeight.w700,
-                  ),
+        child: Form(
+          key:  authCubit.formKey,
+          autovalidateMode:AutovalidateMode.onUserInteraction ,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Continue with email',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontFamily: 'DM Sans',
+                  fontWeight: FontWeight.w700,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, RoutesManager.register);
-                  },
-                  child: Text(
-                    'Create an account',
+              ),
+              SizedBox(height: 32),
+              CustomTextFormField(
+                hintText: "Email",
+                keyboardType: TextInputType.emailAddress,
+                textEditingController: emailController,
+               
+                isEmailValidator: true,
+                onSaved: (p0) {
+                  emailController.text = p0!;
+                },
+                iconShow: false,
+              ),
+              SizedBox(height: 24),
+              CustomTextFormField(
+                hintText: "Password",
+                keyboardType: TextInputType.visiblePassword,
+                textEditingController: passwordController,
+                validator: (p0) {},
+                isEmailValidator: false,
+                onSaved: (p0) {
+                passwordController.text = p0!;
+                },
+                iconShow: true,
+              ),
+                
+              SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Forgot password?',
                     style: TextStyle(
                       color: const Color(0xFFFF6100),
                       fontSize: 14,
@@ -115,20 +105,36 @@ class LoginWithEmailBody extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                ),
-              ],
-            ),
-      
-            Spacer(),
-      
-            CustomBotton(title: "Log in", ontap: () {
-                context.read<AuthCubit>().LoginUser(
-                email: emailController.text,
-                password: passwordController.text,
-              );
-            }),
-            SizedBox(height: 24),
-          ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RoutesManager.register);
+                    },
+                    child: Text(
+                      'Create an account',
+                      style: TextStyle(
+                        color: const Color(0xFFFF6100),
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+                
+              Spacer(),
+                
+              CustomBotton(title: "Log in", ontap: () {
+        if (authCubit.formKey.currentState!.validate()) {
+              context.read<AuthCubit>().LoginUser(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
+        }
+              }),
+              SizedBox(height: 24),
+            ],
+          ),
         ),
       ),
     );

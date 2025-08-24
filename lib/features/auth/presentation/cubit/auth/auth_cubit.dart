@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:talabat/domain/use_cases/auth/auth_use_case.dart';
 import 'package:talabat/features/auth/presentation/cubit/auth/auth_states.dart';
@@ -6,6 +7,7 @@ import 'package:talabat/features/auth/presentation/cubit/auth/auth_states.dart';
 class AuthCubit extends Cubit<AuthStates> {
   AuthCubit({required this.authUseCase}) : super(AuthRegisterInitialState());
   AuthUseCase authUseCase;
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void registerUser({
       String ?firstName,

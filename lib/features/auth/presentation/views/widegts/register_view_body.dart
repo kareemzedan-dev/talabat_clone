@@ -19,7 +19,8 @@ class RegisterViewBody extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController fNameController = TextEditingController();
   final TextEditingController lNameController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AuthCubit authCubit = getIt<AuthCubit>();
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class RegisterViewBody extends StatelessWidget {
             }
           },
           child: Form(
-            key: formKey,
+            key: authCubit.formKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +116,7 @@ class RegisterViewBody extends StatelessWidget {
                 CustomBotton(
                   title: "Create your account",
                   ontap: () {
-                    if (formKey.currentState!.validate()) {
+                    if (authCubit.formKey.currentState!.validate()) {
                       context.read<AuthCubit>().registerUser(
                         firstName: fNameController.text,
                         lastName: lNameController.text,
