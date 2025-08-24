@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 
 class RestaurantNameAndLoveRow extends StatelessWidget {

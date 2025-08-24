@@ -3,11 +3,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:talabat/core/di/di.dart';
 import 'package:talabat/core/helper/my_bloc_observer.dart';
+import 'package:talabat/core/helper/shared_preferences.dart';
 import 'package:talabat/core/utils/routes_manager.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp();
+  await SharedPrefHelper.init();
   configureDependencies();
    Bloc.observer = MyBlocObserver();
 

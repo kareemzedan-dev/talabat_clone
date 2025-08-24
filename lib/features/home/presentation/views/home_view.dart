@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/home_view_tab.dart';
-import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/home_view_tab_body.dart';
 import 'package:talabat/features/home/presentation/views/tabs/search/presentation/views/search_view.dart';
 
 class HomeView extends StatefulWidget {

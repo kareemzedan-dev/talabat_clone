@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/features/home/presentation/views/model/category_card_model.dart';
 

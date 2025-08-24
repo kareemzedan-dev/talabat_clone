@@ -6,7 +6,7 @@ import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/banar_container.dart';
  
 class bannerSection extends StatefulWidget {
-  bannerSection({super.key});
+  const bannerSection({super.key});
 
   @override
   State<bannerSection> createState() => _bannerSectionState();

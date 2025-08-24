@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:talabat/core/di/di.dart';
+import 'package:talabat/core/helper/shared_preferences.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/core/utils/routes_manager.dart';
 import 'package:talabat/core/widgets/custom_button.dart';
@@ -9,12 +10,18 @@ import 'package:talabat/core/widgets/custom_text_field.dart';
 import 'package:talabat/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:talabat/features/auth/presentation/cubit/auth/auth_states.dart';
 import 'package:talabat/features/home/presentation/views/home_view.dart';
+class LoginWithEmailBody extends StatefulWidget {
+  const LoginWithEmailBody({super.key});
 
-class LoginWithEmailBody extends StatelessWidget {
-  LoginWithEmailBody({super.key});
-  AuthCubit authCubit = getIt<AuthCubit>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  @override
+  State<LoginWithEmailBody> createState() => _LoginWithEmailBodyState();
+}
+
+class _LoginWithEmailBodyState extends State<LoginWithEmailBody> {
+  final AuthCubit authCubit = getIt<AuthCubit>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+   
 
   @override
   Widget build(BuildContext context) {
@@ -26,39 +33,37 @@ class LoginWithEmailBody extends StatelessWidget {
             showDialog(
               context: context,
               barrierDismissible: false,
-              builder:
-                  (_) => Center(
-                    child: LoadingAnimationWidget.threeRotatingDots(
-                      size: 60,
-                      color: ColorsManager.primary,
-                    ),
-                  ),
+              builder: (_) => Center(
+                child: LoadingAnimationWidget.threeRotatingDots(
+                  size: 60,
+                  color: ColorsManager.primary,
+                ),
+              ),
             );
           }
           if (state is! AuthLoginLoadingState) {
             Navigator.pop(context);
           }
           if (state is AuthLoginSuccessState) {
-          Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (_)=> HomeView()), (route) => false);
-          }
-          if (state is AuthLoginErrorState) {
-            ScaffoldMessenger.of(
+            Navigator.pushAndRemoveUntil(
               context,
-            ).showSnackBar(
-              SnackBar(
-                content: Text(state.error),
-              ),
+              MaterialPageRoute(builder: (_) => const HomeView()),
+              (route) => false,
             );
           }
-       
+          if (state is AuthLoginErrorState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.error)),
+            );
+          }
         },
         child: Form(
-          key:  authCubit.formKey,
-          autovalidateMode:AutovalidateMode.onUserInteraction ,
+          key: authCubit.formKey,
+          autovalidateMode: authCubit.autovalidateMode,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Continue with email',
                 style: TextStyle(
                   color: Colors.black,
@@ -67,39 +72,42 @@ class LoginWithEmailBody extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               CustomTextFormField(
+                autovalidateMode:  authCubit.autovalidateMode!,
                 hintText: "Email",
                 keyboardType: TextInputType.emailAddress,
                 textEditingController: emailController,
-               
                 isEmailValidator: true,
-                onSaved: (p0) {
-                  emailController.text = p0!;
-                },
+                onSaved: (p0) => emailController.text = p0!,
                 iconShow: false,
+                validator: (p0) {
+                  if (p0!.isEmpty) return 'Please enter your email';
+                  return null;
+                },
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               CustomTextFormField(
+                autovalidateMode:   authCubit.autovalidateMode!,
                 hintText: "Password",
                 keyboardType: TextInputType.visiblePassword,
                 textEditingController: passwordController,
-                validator: (p0) {},
                 isEmailValidator: false,
-                onSaved: (p0) {
-                passwordController.text = p0!;
-                },
+                onSaved: (p0) => passwordController.text = p0!,
                 iconShow: true,
+                validator: (p0) {
+                  if (p0!.isEmpty) return 'Please enter your password';
+                  return null;
+                },
               ),
-                
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Forgot password?',
                     style: TextStyle(
-                      color: const Color(0xFFFF6100),
+                      color: Color(0xFFFF6100),
                       fontSize: 14,
                       fontFamily: 'DM Sans',
                       fontWeight: FontWeight.w700,
@@ -109,10 +117,10 @@ class LoginWithEmailBody extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, RoutesManager.register);
                     },
-                    child: Text(
+                    child: const Text(
                       'Create an account',
                       style: TextStyle(
-                        color: const Color(0xFFFF6100),
+                        color: Color(0xFFFF6100),
                         fontSize: 14,
                         fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w700,
@@ -121,18 +129,26 @@ class LoginWithEmailBody extends StatelessWidget {
                   ),
                 ],
               ),
-                
-              Spacer(),
-                
-              CustomBotton(title: "Log in", ontap: () {
-        if (authCubit.formKey.currentState!.validate()) {
-              context.read<AuthCubit>().LoginUser(
-                  email: emailController.text,
-                  password: passwordController.text,
-                );
-        }
-              }),
-              SizedBox(height: 24),
+              const Spacer(),
+              CustomBotton(
+                title: "Log in",
+                ontap: ()async {
+                  if (authCubit.formKey.currentState!.validate()) {
+                    context.read<AuthCubit>().LoginUser(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                        String? token = SharedPrefHelper.getString('token');
+                        print("token $token");
+                       
+                  } else {
+                    setState(() {
+                        authCubit.autovalidateMode = AutovalidateMode.onUserInteraction;
+                    });
+                  }
+                },
+              ),
+              const SizedBox(height: 24),
             ],
           ),
         ),

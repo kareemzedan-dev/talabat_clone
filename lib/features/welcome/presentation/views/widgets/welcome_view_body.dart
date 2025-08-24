@@ -37,7 +37,7 @@ class _WelcomeViewBodyState extends State<WelcomeViewBody> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             height: MediaQuery.of(context).size.height / 2,
             child: Stack(

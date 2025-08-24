@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/widgets/image_and_text.dart';
 import 'package:talabat/features/home/presentation/views/model/trending_model.dart';
 

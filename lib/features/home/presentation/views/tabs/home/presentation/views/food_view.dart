@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
-import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/food_view_body.dart';
 
 class FoodView extends StatelessWidget {

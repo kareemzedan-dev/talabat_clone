@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/features/home/presentation/views/model/category_card_model.dart';
-import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/category_card.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/shortcuts_card.dart';
 
 class ShortcutsListView extends StatelessWidget {
@@ -29,7 +28,7 @@ class ShortcutsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150,
       width: double.infinity,
       child: ListView.builder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talabat/core/helper/shared_preferences.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/core/utils/routes_manager.dart';
 import 'package:talabat/features/splash/presentation/views/widgets/splash_view_body.dart';
@@ -11,19 +12,35 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-    @override
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3),(){
-      Navigator.pushReplacementNamed(context, RoutesManager.welcome);
-    });
+    _navigate();
   }
+
+  void _navigate() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    final token = SharedPrefHelper.getString('token');
+    final isFirstTime = SharedPrefHelper.getBool('isFirstTime') ?? true;
+
+    if (isFirstTime) {
+      await SharedPrefHelper.setBool('isFirstTime', false);
+      Navigator.pushReplacementNamed(context, RoutesManager.welcome);
+    } else {
+      if (token != null) {
+        Navigator.pushReplacementNamed(context, RoutesManager.home);
+      } else {
+        Navigator.pushReplacementNamed(context, RoutesManager.home);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return   Scaffold(
+    return Scaffold(
       backgroundColor: ColorsManager.primary,
-      body: SplashViewBody(),
+      body: const SplashViewBody(),
     );
   }
 }

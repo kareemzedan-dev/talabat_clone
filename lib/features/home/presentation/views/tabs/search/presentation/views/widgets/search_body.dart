@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:talabat/core/utils/assets_manager.dart';
 
 class SearchBody extends StatelessWidget {
     SearchBody({super.key, this.image, this.title, this.subtitle, this.onTap, this.buttonText});

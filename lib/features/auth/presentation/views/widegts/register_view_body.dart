@@ -3,13 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:talabat/core/di/di.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
-import 'package:talabat/core/utils/routes_manager.dart';
 import 'package:talabat/core/widgets/custom_button.dart';
 import 'package:talabat/core/widgets/custom_text_field.dart';
 import 'package:talabat/core/widgets/receive_offers.dart';
 import 'package:talabat/features/auth/presentation/cubit/auth/auth_cubit.dart';
 import 'package:talabat/features/auth/presentation/cubit/auth/auth_states.dart';
-import 'package:talabat/features/auth/presentation/views/widegts/build_privacy_policy.dart';
 import 'package:talabat/features/home/presentation/views/home_view.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -57,7 +55,7 @@ class RegisterViewBody extends StatelessWidget {
           },
           child: Form(
             key: authCubit.formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
+            autovalidateMode:   authCubit.autovalidateMode,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,6 +65,7 @@ class RegisterViewBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 CustomTextFormField(
+                  autovalidateMode:   authCubit.autovalidateMode!,
                   hintText: "First Name",
                   textEditingController: fNameController,
                   validator:
@@ -78,6 +77,7 @@ class RegisterViewBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
+                        autovalidateMode:   authCubit.autovalidateMode!,
                   hintText: "Last Name",
                   textEditingController: lNameController,
                   validator:
@@ -89,6 +89,7 @@ class RegisterViewBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
+                        autovalidateMode:   authCubit.autovalidateMode!,
                   hintText: "Email",
                   textEditingController: emailController,
                   validator:
@@ -100,6 +101,7 @@ class RegisterViewBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
+                        autovalidateMode:  authCubit.autovalidateMode!,
                   hintText: "Password",
                   textEditingController: passwordController,
                   iconShow: true,
@@ -123,6 +125,9 @@ class RegisterViewBody extends StatelessWidget {
                         email: emailController.text,
                         password: passwordController.text,
                       );
+                    }
+                    else{
+                      authCubit.autovalidateMode = AutovalidateMode.onUserInteraction;
                     }
                   },
                 ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:talabat/core/utils/app_text_styles.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
  
  

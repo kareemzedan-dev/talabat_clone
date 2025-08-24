@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/widgets/custom_search_text_field.dart';
-import 'package:talabat/core/widgets/image_and_text.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/banner_section.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/shop_by_category_widget.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/talabat_mart_offers_list_view.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/top_savers_list_view.dart';
-import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/trending_item.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/trending_list_view.dart';
 
 class TalabatMartViewBody extends StatefulWidget {

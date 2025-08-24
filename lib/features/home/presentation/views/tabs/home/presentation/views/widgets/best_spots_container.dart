@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 import 'package:talabat/features/home/presentation/views/model/foods_model.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_name_and_love_row.dart';

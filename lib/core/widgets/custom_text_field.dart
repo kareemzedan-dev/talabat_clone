@@ -14,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
     this.validator,
       this.isEmailValidator= false,
         this.textEditingController,
-         this.autovalidateMode = AutovalidateMode.disabled,
+      required   this.autovalidateMode  ,
   });
 
   final String? hintText;

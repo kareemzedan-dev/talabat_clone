@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:talabat/domain/entites/register_response_entity/register_response_entity.dart';
 
 class RegisterResponseDm extends RegisterResponseEntity {

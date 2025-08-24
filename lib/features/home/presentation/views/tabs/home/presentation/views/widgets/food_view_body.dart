@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/all_restaurant_info_list_view.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/filter_chip_button.dart';
-import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/great_value_deals.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/great_value_deals_list_view.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/promo_category_card.dart';
-import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_info_item.dart';
 
 class FoodViewBody extends StatelessWidget {
   const FoodViewBody({super.key});

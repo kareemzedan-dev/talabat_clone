@@ -8,7 +8,7 @@ class AuthCubit extends Cubit<AuthStates> {
   AuthCubit({required this.authUseCase}) : super(AuthRegisterInitialState());
   AuthUseCase authUseCase;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
   void registerUser({
       String ?firstName,
       String ?lastName,

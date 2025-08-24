@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:talabat/core/helper/failures.dart';
 import 'package:talabat/domain/entites/login_response_entity/login_response_entity.dart';
 import 'package:talabat/domain/entites/register_response_entity/register_response_entity.dart';
 
