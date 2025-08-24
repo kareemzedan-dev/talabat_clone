@@ -12,7 +12,7 @@ class CustomBotton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width:  MediaQuery .of(context).size.width * 0.6,
+      width:  MediaQuery .of(context).size.width ,
       height: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -22,7 +22,12 @@ class CustomBotton extends StatelessWidget {
           ),
         ),
         onPressed:   ontap,
-        child: Text(title, style:  AppTextStyles.bold16.copyWith(color: ColorsManager.white)),
+        child: Text(title,   style: TextStyle(
+    color: Colors.white,
+    fontSize: 14,
+    fontFamily: 'DM Sans',
+    fontWeight: FontWeight.w500,
+  ),),
       ),
     );
   }

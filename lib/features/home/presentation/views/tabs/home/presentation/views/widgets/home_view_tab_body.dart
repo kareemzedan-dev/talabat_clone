@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/best_spots_container.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/best_spots_list_view.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/category_card.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/category_card_list_view.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/home_header_section.dart';
@@ -51,7 +52,7 @@ class HomeViewTabBody extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                BestSpotsContainer(),
+                BestSpotsListView(),
                 SizedBox(height: 20),
                 Text(
                   'Popular restaurants nearby',

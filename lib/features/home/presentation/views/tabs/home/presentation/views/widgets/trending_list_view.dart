@@ -5,16 +5,16 @@ import 'package:talabat/features/home/presentation/views/tabs/home/presentation/
 
 class TrendingListView extends StatelessWidget {
     TrendingListView({super.key});
-    List<TrendingModel> trendingList = [
-      TrendingModel(tImage: Assets.assetsImagesGalaxy, 
+    List<TrendingAndSaversModel> trendingList = [
+      TrendingAndSaversModel(tImage: Assets.assetsImagesGalaxy, 
       tName: "Galaxy Smooth \n Milk Chocolate", tFullPrice: "AED 3.75", tBeforeDiscountPrice: "AED 3.75",),
-          TrendingModel(tImage: Assets.assetsImagesKiri, 
+          TrendingAndSaversModel(tImage: Assets.assetsImagesKiri, 
       tName: "Kiri Creamy Tub \n Cheese 200g", tFullPrice: "AED 19.55", tBeforeDiscountPrice: "AED 3.75",),
         
         
-          TrendingModel(tImage: Assets.assetsImagesSandwitch, 
+          TrendingAndSaversModel(tImage: Assets.assetsImagesSandwitch, 
       tName: "Prince Sandwich \n Biscuit with Ch...", tFullPrice: "AED 3.75", tBeforeDiscountPrice: "AED 3.75",),
-          TrendingModel(tImage: Assets.assetsImagesKiri, 
+          TrendingAndSaversModel(tImage: Assets.assetsImagesKiri, 
       tName: "Kiri Creamy Tub \n Cheese 200g", tFullPrice: "AED 19.55", tBeforeDiscountPrice: "AED 3.75",),
         
     

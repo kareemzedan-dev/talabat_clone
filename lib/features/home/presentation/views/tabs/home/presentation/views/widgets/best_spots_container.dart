@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
+import 'package:talabat/features/home/presentation/views/model/foods_model.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_name_and_love_row.dart';
 
 class BestSpotsContainer extends StatelessWidget {
-  const BestSpotsContainer({super.key});
+    BestSpotsContainer({super.key, required this.foodsModel});
+  FoodsModel foodsModel ;
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +21,28 @@ class BestSpotsContainer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
               ),
-              child: Image.asset(Assets.assetsImagesFood1, fit: BoxFit.fill),
+              child: ClipRRect(
+  borderRadius: BorderRadius.circular(16),
+  child: Image.asset(
+    foodsModel.image!,
+    fit: BoxFit.cover,
+    height: 220,
+    width: 160,
+  ),
+),
+
             ),
             Positioned(
               top: 0,
               left: 0,
               right: 0,
-              child: RestaurantNameAndLoveRow(),
+              child: RestaurantNameAndLoveRow(rImage:foodsModel.restaurantImage! ,),
             ),
           ],
         ),
         SizedBox(height: 10),
         Text(
-          "Allo Beirut Restaurant",
+        foodsModel.name!,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -42,8 +53,8 @@ class BestSpotsContainer extends StatelessWidget {
         ),
         SizedBox(height: 5),
         buildRatingWidget(
-          rating: 4.5,
-          ratingCount: "(200+)",
+          rating:  foodsModel.rate!,
+          ratingCount: foodsModel.rateCount!,
         ),
       ],
     );

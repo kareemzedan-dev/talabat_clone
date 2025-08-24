@@ -5,7 +5,7 @@ import 'package:talabat/features/home/presentation/views/model/trending_model.da
 
 class TrendingItem extends StatelessWidget {
     TrendingItem({super.key , required this.trendingModel});
-  TrendingModel trendingModel ;
+  TrendingAndSaversModel trendingModel ;
 
   @override
   Widget build(BuildContext context) {

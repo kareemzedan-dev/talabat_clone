@@ -3,7 +3,8 @@ import 'package:talabat/core/utils/assets_manager.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
 
 class RestaurantNameAndLoveRow extends StatelessWidget {
-  const RestaurantNameAndLoveRow({super.key});
+    RestaurantNameAndLoveRow({super.key,required this.rImage});
+  String rImage ;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class RestaurantNameAndLoveRow extends StatelessWidget {
             width: 35,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
                 color: ColorsManager.card),
-            child: Image.asset(Assets.assetsImagesAllo, fit: BoxFit.contain),
+            child: Image.asset(rImage , fit: BoxFit.contain),
           ),
           Container(
             height: 30,

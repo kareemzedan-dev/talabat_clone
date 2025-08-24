@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/bakery.png
   static const String assetsImagesBakery = "assets/images/bakery.png";
 
+  /// Assets for assetsImagesBanner
+  /// assets/images/banner.png
+  static const String assetsImagesBanner = "assets/images/banner.png";
+
   /// Assets for assetsImagesBestSellers
   /// assets/images/best_sellers.png
   static const String assetsImagesBestSellers = "assets/images/best_sellers.png";
@@ -50,6 +54,10 @@ class Assets {
   /// assets/images/eggs.png
   static const String assetsImagesEggs = "assets/images/eggs.png";
 
+  /// Assets for assetsImagesFlowerSearchIc
+  /// assets/images/flower_search_ic.png
+  static const String assetsImagesFlowerSearchIc = "assets/images/flower_search_ic.png";
+
   /// Assets for assetsImagesFlowers
   /// assets/images/flowers.png
   static const String assetsImagesFlowers = "assets/images/flowers.png";
@@ -66,6 +74,10 @@ class Assets {
   /// assets/images/galaxy.png
   static const String assetsImagesGalaxy = "assets/images/galaxy.png";
 
+  /// Assets for assetsImagesGeorgianCuisineTable
+  /// assets/images/georgian-cuisine-table.jpg
+  static const String assetsImagesGeorgianCuisineTable = "assets/images/georgian-cuisine-table.jpg";
+
   /// Assets for assetsImagesGiveBack
   /// assets/images/give_back.png
   static const String assetsImagesGiveBack = "assets/images/give_back.png";
@@ -73,6 +85,10 @@ class Assets {
   /// Assets for assetsImagesGroceries
   /// assets/images/groceries.png
   static const String assetsImagesGroceries = "assets/images/groceries.png";
+
+  /// Assets for assetsImagesGroceriesSearchIc
+  /// assets/images/groceries_search_ic.png
+  static const String assetsImagesGroceriesSearchIc = "assets/images/groceries_search_ic.png";
 
   /// Assets for assetsImagesHeaderBanner
   /// assets/images/header_banner.png
@@ -85,6 +101,10 @@ class Assets {
   /// Assets for assetsImagesHealthFood
   /// assets/images/health_food.png
   static const String assetsImagesHealthFood = "assets/images/health_food.png";
+
+  /// Assets for assetsImagesHealthSearchIc
+  /// assets/images/health_search_ic.png
+  static const String assetsImagesHealthSearchIc = "assets/images/health_search_ic.png";
 
   /// Assets for assetsImagesHealthiconsVespaMotorcycleOutline
   /// assets/images/healthicons_vespa-motorcycle-outline.png
@@ -137,6 +157,10 @@ class Assets {
   /// Assets for assetsImagesMilk
   /// assets/images/milk.png
   static const String assetsImagesMilk = "assets/images/milk.png";
+
+  /// Assets for assetsImagesMoreSearchIc
+  /// assets/images/more_search_ic.png
+  static const String assetsImagesMoreSearchIc = "assets/images/more_search_ic.png";
 
   /// Assets for assetsImagesMoreshops
   /// assets/images/moreshops.png

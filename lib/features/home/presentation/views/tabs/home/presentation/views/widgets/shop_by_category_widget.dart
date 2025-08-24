@@ -25,9 +25,9 @@ class ShopByCategoryWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 26,
+        crossAxisCount: 3,
+        crossAxisSpacing: 1,
+        mainAxisSpacing:1,
       ),
       itemCount: categories.length + 1,
       itemBuilder: (context, index) {
@@ -51,17 +51,17 @@ class ShopByCategoryWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(Assets.assetsImagesRectangle),
-                              SizedBox(height: 1),
+                        SizedBox(height: 1),
                         Image.asset(Assets.assetsImagesRectangle),
                       ],
                     ),
                     SizedBox(height: 2),
                     Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(Assets.assetsImagesRectangle),
-                              SizedBox(height: 1),
+                        SizedBox(height: 1),
                         Image.asset(Assets.assetsImagesRectangle),
                       ],
                     ),
@@ -84,7 +84,7 @@ class ShopByCategoryWidget extends StatelessWidget {
             ],
           );
         } else {
-          // العناصر العادية
+         
           final category = categories[index];
           return ShopByCategoryItem(
             title: category["title"]!,
@@ -120,7 +120,7 @@ class ShopByCategoryItem extends StatelessWidget {
             image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 4),
         Flexible(
           child: Text(
             title,
@@ -131,6 +131,8 @@ class ShopByCategoryItem extends StatelessWidget {
               fontFamily: 'DM Sans',
               fontWeight: FontWeight.w500,
             ),
+            maxLines: 2,
+            softWrap: true,
 
             overflow: TextOverflow.visible,
           ),

@@ -44,7 +44,7 @@ Navigator.pushNamed(context ,RoutesManager.home);
             label: "Continue with email",
             iconPath: Assets.assetsImagesIcBaselineEmail,
             onPressed: () {
-              print("Twitter login");
+              Navigator.pushNamed(context, RoutesManager.loginWithEmail);
             },
           )
       ],

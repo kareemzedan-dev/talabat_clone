@@ -70,7 +70,12 @@ class ImageAndText extends StatelessWidget {
                 fontSize: 12,
                 fontFamily: 'DM Sans',
                 fontWeight: FontWeight.w500,
+                
               ),
+              textAlign: TextAlign.center,
+              softWrap: true,
+              overflow: TextOverflow.visible,
+              
             )
             : Text(
               text,
@@ -79,7 +84,12 @@ class ImageAndText extends StatelessWidget {
                 fontSize: 12,
                 fontFamily: 'DM Sans',
                 fontWeight: FontWeight.w700,
+                
               ),
+                textAlign: TextAlign.center,
+                   softWrap: true,
+              overflow: TextOverflow.visible,
+              
             ),
       ],
     );
