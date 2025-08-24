@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
- 
- 
- 
 
 class CustomBotton extends StatelessWidget {
   CustomBotton({super.key, required this.title, required this.ontap});
@@ -11,7 +8,7 @@ class CustomBotton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width:  MediaQuery .of(context).size.width ,
+      width: MediaQuery.of(context).size.width,
       height: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -20,13 +17,16 @@ class CustomBotton extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
         ),
-        onPressed:   ontap,
-        child: Text(title,   style: TextStyle(
-    color: Colors.white,
-    fontSize: 14,
-    fontFamily: 'DM Sans',
-    fontWeight: FontWeight.w500,
-  ),),
+        onPressed: ontap,
+        child: Text(
+          title,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontFamily: 'DM Sans',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
     );
   }

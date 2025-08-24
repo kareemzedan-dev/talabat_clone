@@ -35,21 +35,26 @@ class HomeHeaderSection extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      'Al Satwa, 81A Street',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: 'DM Sans',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.02,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesManager.mapView);
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        'Al Satwa, 81A Street',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontFamily: 'DM Sans',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.02,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 3),
-                    const Icon(Icons.arrow_drop_down, color: Colors.black),
-                  ],
+                      const SizedBox(width: 3),
+                      const Icon(Icons.arrow_drop_down, color: Colors.black),
+                    ],
+                  ),
                 ),
 
                 const SizedBox(height: 24),
