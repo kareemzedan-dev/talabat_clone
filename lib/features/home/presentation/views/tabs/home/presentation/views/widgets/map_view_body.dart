@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:talabat/core/utils/app_text_styles.dart';
 import 'package:talabat/core/utils/colors_manger.dart';
+import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/search_text_field.dart';
 
 class MapViewBody extends StatefulWidget {
   const MapViewBody({super.key});
@@ -33,35 +34,36 @@ class _MapViewBodyState extends State<MapViewBody> {
             padding: const EdgeInsets.only(top: 20.0),
             child: Align(
               alignment: Alignment.topCenter,
-              child: Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width * 0.9,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(Icons.search, color: Colors.grey),
-                      SizedBox(width: 10),
-                      Text(
-                        "Search",
-                        style: AppTextStyles.bold16.copyWith(
-                          color: Colors.grey,
-                        ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: ColorsManager.primary,
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    ],
+                      child: Icon(
+                        Icons.arrow_back_ios_new_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(height: 30),
+                  SearchTextField(context),
+                ],
               ),
             ),
           ),
         ),
       ],
     );
-  }
+  } 
 }
