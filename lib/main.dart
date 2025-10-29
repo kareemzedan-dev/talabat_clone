@@ -25,7 +25,7 @@ class talabat extends StatelessWidget {
       theme: ThemeData(fontFamily: "Cairo"),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) => RoutesManager.onGenerateRoute(settings),
-      initialRoute: RoutesManager.splashRoute,
+      initialRoute: RoutesManager.welcome,
    
     );
   }
