@@ -13,15 +13,6 @@ import 'package:talabat/features/auth/presentation/view_model/register_view_mode
 class RegisterViewBody extends StatelessWidget {
   RegisterViewBody({super.key});
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController fNameController = TextEditingController();
-  final TextEditingController lNameController = TextEditingController();
-  final TextEditingController displayNameController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController countryController = TextEditingController();
-  final TextEditingController cityController = TextEditingController();
-  final TextEditingController streetController = TextEditingController();
 
 
   RegisterViewModel registerViewModel = getIt<RegisterViewModel>();
@@ -74,108 +65,108 @@ class RegisterViewBody extends StatelessWidget {
                 CustomTextFormField(
                   autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "First Name",
-                  textEditingController: fNameController,
+                  textEditingController: registerViewModel.firstNameController ,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    fNameController.text = p0!;
+                    registerViewModel.firstNameController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Last Name",
-                  textEditingController: lNameController,
+                  textEditingController: registerViewModel.lastNameController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    lNameController.text = p0!;
+                    registerViewModel.lastNameController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Display Name",
-                  textEditingController: displayNameController,
+                  textEditingController: registerViewModel.displayNameController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    displayNameController.text = p0!;
+                    registerViewModel.displayNameController.text = p0!;
                   },
                 ),  const SizedBox(height: 24),
                 CustomTextFormField(
                   autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Email",
-                  textEditingController: emailController,
+                  textEditingController: registerViewModel.emailController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.emailAddress,
                   onSaved: (p0) {
-                    emailController.text = p0!;
+                    registerViewModel.emailController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                   autovalidateMode:  registerViewModel.autovalidateMode!,
                   hintText: "Password",
-                  textEditingController: passwordController,
+                  textEditingController: registerViewModel.passwordController,
                   iconShow: true,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.visiblePassword,
                   onSaved: (p0) {
-                    passwordController.text = p0!;
+                    registerViewModel.passwordController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Phone Number",
-                  textEditingController: phoneNumberController,
+                  textEditingController:registerViewModel. phoneNumberController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.phone,
                   onSaved: (p0) {
-                    phoneNumberController.text = p0!;
+                    registerViewModel. phoneNumberController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Country",
-                  textEditingController: countryController,
+                  textEditingController:registerViewModel. countryController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    countryController.text = p0!;
+                    registerViewModel.countryController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "City",
-                  textEditingController: cityController,
+                  textEditingController:registerViewModel. cityController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    cityController.text = p0!;
+                    registerViewModel. cityController.text = p0!;
                   },
                 ),
                 const SizedBox(height: 24),
                 CustomTextFormField(
                         autovalidateMode:   registerViewModel.autovalidateMode!,
                   hintText: "Street",
-                  textEditingController: streetController,
+                  textEditingController: registerViewModel.streetController,
                   validator:
                       (p0) => p0!.isEmpty ? 'This field is required' : null,
                   keyboardType: TextInputType.text,
                   onSaved: (p0) {
-                    streetController.text = p0!;
+                    registerViewModel.streetController.text = p0!;
                   },
                 ),
 

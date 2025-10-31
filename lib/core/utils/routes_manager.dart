@@ -7,6 +7,8 @@ import 'package:talabat/features/home/presentation/views/tabs/home/presentation/
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/talabat_mart_view.dart';
 import 'package:talabat/features/splash/presentation/views/splash_view.dart';
 import 'package:talabat/features/welcome/presentation/views/welcome_view.dart';
+
+import '../../features/home/presentation/views/tabs/home/presentation/views/restaurant_view.dart';
  
 
 class RoutesManager {
@@ -18,6 +20,7 @@ class RoutesManager {
   static const String talabatMart = "talabatMart";
   static const String loginWithEmail = "loginWithEmail";
   static const String mapView = "mapView";
+  static const String restaurantView = "restaurantView";
  
 
   static Route onGenerateRoute(RouteSettings settings) {
@@ -38,7 +41,10 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => const RegisterView());
         case mapView:
         return MaterialPageRoute(builder: (_) => const MapView());
-      default:
+
+        case restaurantView:
+        return MaterialPageRoute(builder: (_) => const RestaurantView());
+        default:
         return MaterialPageRoute(builder: (_) => const Placeholder());
     }
   }

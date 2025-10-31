@@ -281,5 +281,9 @@ class Assets {
   /// Assets for assetsImagesTries
   /// assets/images/tries.png
   static const String assetsImagesTries = "assets/images/tries.png";
+
+  static const String assetsImagesCoverImage = "assets/images/cover_image_test.png";
+  static const String assetsImagesMandarin = "assets/images/mandarin.png";
+  static const String assetsImagesTalabatSeekLogo = "assets/images/talabat-seeklogo.png";
 }
 

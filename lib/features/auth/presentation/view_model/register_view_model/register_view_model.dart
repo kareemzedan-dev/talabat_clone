@@ -12,15 +12,25 @@ class RegisterViewModel extends Cubit<RegisterViewModelStates> {
   final RegisterUseCase registerUseCase;
 
   RegisterViewModel(this.registerUseCase) : super(RegisterViewModelInitial());
-  final TextEditingController displayNameController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController countryController = TextEditingController();
-  final TextEditingController cityController = TextEditingController();
-  final TextEditingController streetController = TextEditingController();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController displayNameController =
+  TextEditingController( );
+  final TextEditingController phoneNumberController =
+  TextEditingController( );
+  final TextEditingController countryController =
+  TextEditingController( );
+  final TextEditingController cityController =
+  TextEditingController( );
+  final TextEditingController streetController =
+  TextEditingController( );
+  final TextEditingController firstNameController =
+  TextEditingController( );
+  final TextEditingController lastNameController =
+  TextEditingController( );
+  final TextEditingController emailController =
+  TextEditingController( );
+  final TextEditingController passwordController =
+  TextEditingController( );
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

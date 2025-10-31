@@ -42,8 +42,7 @@ class HomeViewTabBody extends StatelessWidget {
                 ShortcutsListView(),
                 const SizedBox(height: 10),
 
-               
-                if (user != null) ...[
+
               Text(
                     "Yalla, find the best spots for you",
                     style: TextStyle(
@@ -69,7 +68,7 @@ class HomeViewTabBody extends StatelessWidget {
                 SizedBox(height: 10),
                 RestaurantsCardListView(),
                 SizedBox(height: 50),
-                ]
+
               ],
             ),
           ),
