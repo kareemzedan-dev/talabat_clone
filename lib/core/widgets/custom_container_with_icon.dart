@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/colors_manger.dart';
 
 class CustomContainerWithIcon extends StatelessWidget {
-  const CustomContainerWithIcon({super.key, required this.icon});
+  const CustomContainerWithIcon({super.key, required this.icon,   this.color = ColorsManager.black});
   final IconData icon;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CustomContainerWithIcon extends StatelessWidget {
       child: Icon(
         size: 16.sp,
         icon,
-        color: ColorsManager.black,
+        color:color,
       ),
     );
   }
