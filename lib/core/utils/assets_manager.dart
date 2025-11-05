@@ -286,5 +286,7 @@ class Assets {
   static const String assetsImagesMandarin = "assets/images/mandarin.png";
   static const String assetsImagesTalabatSeekLogo = "assets/images/talabat-seeklogo.png";
   static const String assetsImagesSzechuan= "assets/images/Szechuan-Fried-Rice.png";
+  static const String assetsImageswater= "assets/images/water.png";
+  static const String assetsImagescole= "assets/images/cole.png";
 }
 
