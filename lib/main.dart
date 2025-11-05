@@ -30,7 +30,7 @@ class Talabat extends StatelessWidget {
           theme: ThemeData(fontFamily: "Cairo"),
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RoutesManager.onGenerateRoute,
-          initialRoute: RoutesManager.restaurantView,
+          initialRoute: RoutesManager.foodDetailsView,
           builder: (context, widget) {
             ScreenUtil.init(context);
             return widget!;

@@ -6,7 +6,13 @@ import 'package:talabat/core/widgets/custom_container_with_icon.dart';
 import '../../../../../../../../../core/utils/colors_manger.dart';
 
 class FoodItemCard extends StatelessWidget {
-  const FoodItemCard({super.key, required this.image, required this.name, required this.price});
+  const FoodItemCard({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.price,
+  });
+
   final String image;
   final String name;
   final String price;
@@ -27,7 +33,7 @@ class FoodItemCard extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.w),
             child: Align(
               alignment: Alignment.bottomRight,
               child: CustomContainerWithIcon(
@@ -41,11 +47,9 @@ class FoodItemCard extends StatelessWidget {
         Text(
           name,
           maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
-
-            overflow: TextOverflow.ellipsis,
-
-            color: Colors.black.withValues(alpha: 0.85),
+            color: Colors.black.withOpacity(0.85),
             fontSize: 12.sp,
             fontFamily: 'DM Sans',
             fontWeight: FontWeight.w500,
@@ -53,7 +57,7 @@ class FoodItemCard extends StatelessWidget {
         ),
         SizedBox(height: 5.h),
         Text(
-           price,
+          price,
           style: TextStyle(
             color: ColorsManager.primary,
             fontSize: 12.sp,

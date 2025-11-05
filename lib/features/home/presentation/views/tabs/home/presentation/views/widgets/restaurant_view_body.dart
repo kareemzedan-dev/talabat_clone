@@ -6,47 +6,104 @@ import 'package:talabat/core/widgets/custom_container_with_icon.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_card_details.dart';
 import 'package:talabat/features/home/presentation/views/tabs/home/presentation/views/widgets/restaurant_trending_section.dart';
 import '../../../../../../../../../core/utils/assets_manager.dart';
-import 'food_item_card.dart';
+import 'food_item_list_view.dart';
 
-class RestaurantViewBody extends StatelessWidget {
+class RestaurantViewBody extends StatefulWidget {
   const RestaurantViewBody({super.key});
+
+  @override
+  State<RestaurantViewBody> createState() => _RestaurantViewBodyState();
+}
+
+class _RestaurantViewBodyState extends State<RestaurantViewBody>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final ScrollController _scrollController = ScrollController();
+
+
+  final List<Map<String, dynamic>> sections = [
+    {'title': 'Trending 🔥', 'widget': const RestaurantTrendingSection()},
+    {'title': 'Offers', 'widget': const FoodItemListView(title: "Offers",)},
+    {'title': 'Pizza', 'widget': const FoodItemListView(title: "Pizza",)},
+    {'title': 'Burger', 'widget': const FoodItemListView(title: "Burger",)},
+    {'title': 'Sushi', 'widget': const FoodItemListView(title: "Sushi",)},
+    {'title': 'Dessert', 'widget': const FoodItemListView(title: "Dessert",)},
+  ];
+
+  late List<GlobalKey> sectionKeys;
+
+  @override
+  void initState() {
+    super.initState();
+    sectionKeys = List.generate(sections.length, (_) => GlobalKey());
+    _tabController = TabController(length: sections.length, vsync: this);
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    for (int i = 0; i < sectionKeys.length; i++) {
+      final keyContext = sectionKeys[i].currentContext;
+      if (keyContext != null) {
+        final box = keyContext.findRenderObject() as RenderBox;
+        final position = box.localToGlobal(Offset.zero).dy;
+        if (position < 150 && position > -box.size.height / 2) {
+          if (_tabController.index != i) {
+            _tabController.animateTo(i);
+          }
+          break;
+        }
+      }
+    }
+  }
+
+  void scrollToSection(int index) {
+    final keyContext = sectionKeys[index].currentContext;
+    if (keyContext != null) {
+      Scrollable.ensureVisible(
+        keyContext,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: sections.length,
       child: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
+          CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              // ====== COVER IMAGE + HEADER ======
+              SliverToBoxAdapter(
+                child: Stack(
                   children: [
                     Container(
                       height: 220.h,
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
                       child: Image.asset(
                         Assets.assetsImagesCoverImage,
                         fit: BoxFit.cover,
-                        height: 220.h,
-                        width: double.infinity,
                       ),
                     ),
                     Container(
                       height: 220.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
+                      color: Colors.white.withOpacity(0.2),
                     ),
                     Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 16.0,
                             vertical: 40,
                           ),
@@ -75,13 +132,13 @@ class RestaurantViewBody extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                 width: 1.w,
-                                color: Colors.black.withValues(alpha: 0.25),
+                                color: Colors.black.withOpacity(0.25),
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(16.0),
                             child: RestaurantCardDetails(),
                           ),
                         ),
@@ -89,68 +146,56 @@ class RestaurantViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20.h),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.menu, color: Colors.black),
+              ),
 
-                      Expanded(
-                        child: TabBar(
-                          isScrollable: true,
-                          labelColor: ColorsManager.primary,
-                          unselectedLabelColor: Colors.grey,
-                          indicatorColor: ColorsManager.primary,
-                          padding: EdgeInsets.zero,
-                          tabAlignment: TabAlignment.center,
-
-                          dividerHeight: 0,
-                          indicatorSize: TabBarIndicatorSize.tab,
-                          indicatorWeight: 2,
-                          labelStyle: TextStyle(
-                            color: Colors.black.withValues(alpha: 0.70),
-                            fontSize: 12.sp,
-                            fontFamily: 'DM Sans',
-                            fontWeight: FontWeight.w500,
-                          ),
-                          tabs: const [
-                            Tab(text: 'Trending 🔥'),
-                            Tab(text: 'offers'),
-                            Tab(text: 'pizza'),
-                            Tab(text: 'Trending 🔥'),
-                            Tab(text: 'offers'),
-                            Tab(text: 'pizza'),
-                          ],
-                        ),
-                      ),
-                    ],
+              // ====== TABBAR ======
+              SliverPersistentHeader(
+                pinned: true,
+                delegate: _TabBarDelegate(
+                  TabBar(
+                    controller: _tabController,
+                    isScrollable: true,
+                    labelColor: ColorsManager.primary,
+                    unselectedLabelColor: Colors.grey,
+                    indicatorColor: ColorsManager.primary,
+                    dividerHeight: 0,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    tabAlignment: TabAlignment.center,
+                    indicatorWeight: 2,
+                    labelStyle: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: 'DM Sans',
+                      fontWeight: FontWeight.w500,
+                    ),
+                    onTap: scrollToSection,
+                    tabs: sections
+                        .map((s) => Tab(text: s['title'] as String))
+                        .toList(),
                   ),
                 ),
+              ),
 
-                SizedBox(
-                  height: 400.h,
-                  child: TabBarView(
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: RestaurantTrendingSection(),
-                        ),
-                      ),
-                      Center(child: Text('Reviews Content')),
-                      Center(child: Text('Info Content')),
-                      Center(child: Text('Menu Content')),
-                      Center(child: Text('Reviews Content')),
-                      Center(child: Text('Info Content')),
-                    ],
+              // ====== SECTION LIST ======
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        for (int i = 0; i < sections.length; i++)
+                          sectionWidget(sectionKeys[i], sections[i]['widget']),
+                        SizedBox(height: 80.h),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ]),
+              ),
+            ],
           ),
+
+          // ====== BOTTOM BASKET BAR ======
           Padding(
-            padding:   EdgeInsets.only(bottom: 34.h),
+            padding: EdgeInsets.only(bottom: 34.h),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -163,7 +208,7 @@ class RestaurantViewBody extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:  16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: [
                       Container(
@@ -171,8 +216,8 @@ class RestaurantViewBody extends StatelessWidget {
                           color: Colors.grey.shade300,
                           borderRadius: BorderRadius.circular(8.r),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
                             vertical: 3.0,
                             horizontal: 10.0,
                           ),
@@ -188,7 +233,7 @@ class RestaurantViewBody extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 5.w),
-                      Text(
+                      const Text(
                         'View basket',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -198,8 +243,8 @@ class RestaurantViewBody extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Spacer(),
-                      Text(
+                      const Spacer(),
+                      const Text(
                         'AED 0.00',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -208,8 +253,7 @@ class RestaurantViewBody extends StatelessWidget {
                           fontFamily: 'DM Sans',
                           fontWeight: FontWeight.w500,
                         ),
-                      )
-
+                      ),
                     ],
                   ),
                 ),
@@ -220,4 +264,36 @@ class RestaurantViewBody extends StatelessWidget {
       ),
     );
   }
+
+  Widget sectionWidget(Key key, Widget child) {
+    return Container(
+      key: key,
+      margin: EdgeInsets.symmetric(vertical: 10.h),
+      child: child,
+    );
+  }
+}
+
+class _TabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar _tabBar;
+  _TabBarDelegate(this._tabBar);
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.only(top: 20.h),
+        child: _tabBar,
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => _tabBar.preferredSize.height + 20.h;
+  @override
+  double get minExtent => _tabBar.preferredSize.height + 20.h;
+  @override
+  bool shouldRebuild(_TabBarDelegate oldDelegate) => false;
 }
