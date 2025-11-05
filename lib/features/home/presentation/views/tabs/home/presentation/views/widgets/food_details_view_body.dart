@@ -13,9 +13,93 @@ class FoodDetailsViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children:   [
           FoodImageSection(),
           FoodInfoSection(),
+          SizedBox(height: 32.h),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:  8.0),
+            child: Row(children: [
+              Icon(FontAwesomeIcons.message,size: 16.sp,),
+              SizedBox(width: 8.w),
+              Text(
+                'Any special requests?',
+                style: TextStyle(
+                  color: Colors.black.withValues(alpha: 0.85),
+                  fontSize: 14,
+                  fontFamily: 'DM Sans',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                'Add note',
+                style: TextStyle(
+                  color: const Color(0xFFFF6100),
+                  fontSize: 14,
+                  fontFamily: 'DM Sans',
+                  fontWeight: FontWeight.w500,
+                ),
+              )
+            ],),
+          ),
+          SizedBox(height: 16.h),
+          Container(
+            width: 375,
+            decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  width: 1,
+                  strokeAlign: BorderSide.strokeAlignCenter,
+                  color: Colors.black.withValues(alpha: 0.25),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 16.h),
+          Center(
+            child: Container(
+              width: 343,
+              height: 48,
+              decoration: ShapeDecoration(
+                color: const Color(0xFFFF6100),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal:  8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Add to basket',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    Text(
+                      'AED 31.00',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+          ),
+          SizedBox(height: 16.h),
         ],
       ),
     );
